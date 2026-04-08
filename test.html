@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maggie Lu – Job Application to PayPal</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: #ffffff;
+}
+h1,h2,h3,h4 { font-family: Georgia, 'Times New Roman', serif; }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: #1a2b5c;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar .nav-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+}
+.navbar .company-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+.navbar .company-logo svg { height: 28px; width: auto; }
+
+.hero {
+  background: #f5f5f5;
+  padding: 60px 20px 50px;
+  text-align: center;
+}
+.hero-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #1a2b5c;
+  margin: 0 auto 24px;
+  display: block;
+}
+.hero h1 {
+  font-size: 36px;
+  color: #1a2b5c;
+  margin-bottom: 14px;
+}
+.hero .title-pill {
+  display: inline-block;
+  background: #1a2b5c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 28px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.hero .applying-to {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 4px;
+}
+.hero .applying-title {
+  font-size: 14px;
+  color: #888;
+}
+
+.section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
+.section-gray { background: #f5f5f5; }
+.section-gray .section { padding-top: 50px; padding-bottom: 50px; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.section-header::before,
+.section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+.section-header h2 {
+  font-size: 26px;
+  color: #1a2b5c;
+  white-space: nowrap;
+}
+
+.why-section { background: #ffffff; }
+.why-list { list-style: none; padding: 0; }
+.why-list li {
+  background: #f9f9f9;
+  border-left: 4px solid #1a2b5c;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  border-radius: 0 10px 10px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.stat-card {
+  flex: 1 1 160px;
+  max-width: 190px;
+  background: #1a2b5c;
+  color: #fff;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+.stat-card .stat-number {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.stat-card .stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: .85;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.summary-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px 36px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  border: 1px solid #e5e5e5;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.work-section { background: #ffffff; }
+.work-entry { margin-bottom: 36px; }
+.work-entry:last-child { margin-bottom: 0; }
+.work-company {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a2b5c;
+  margin-bottom: 2px;
+  font-family: Georgia, serif;
+}
+.work-role {
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 2px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.work-dates {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+.work-bullets {
+  list-style: disc;
+  padding-left: 22px;
+}
+.work-bullets li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.edu-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+.edu-card {
+  flex: 1 1 260px;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.edu-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e8eef5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #1a2b5c;
+}
+.edu-degree {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a2b5c;
+  margin-bottom: 6px;
+  font-family: Georgia, serif;
+  line-height: 1.35;
+}
+.edu-progress {
+  display: inline-block;
+  background: #e8f4fd;
+  color: #0066cc;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  width: fit-content;
+}
+.edu-school {
+  font-weight: 700;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.edu-location {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.edu-dates {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.edu-gpa {
+  font-weight: 700;
+  color: #0066cc;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .navbar { padding: 12px 20px; }
+  .hero h1 { font-size: 28px; }
+  .stat-card { max-width: 100%; }
+  .edu-card { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. NAVIGATION BAR -->
+<nav class="navbar">
+  <span class="nav-title">JOB APPLICATION</span>
+  <div class="company-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 33" fill="none" height="28">
+      <path d="M46.211 6.749h-6.839a.95.95 0 0 0-.939.802l-2.766 17.537a.57.57 0 0 0 .564.658h3.265a.95.95 0 0 0 .939-.803l.746-4.73a.95.95 0 0 1 .938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-.972-1.142-2.696-1.746-4.985-1.746zm.789 6.405c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583a.57.57 0 0 1 .563-.481h.473c1.235 0 2.4 0 3.002.703.359.42.468 1.044.332 1.907zM66.654 13.075h-3.275a.57.57 0 0 0-.563.481l-.145.916-.229-.332c-.709-1.029-2.29-1.373-3.868-1.373-3.619 0-6.71 2.741-7.312 6.586-.313 1.918.132 3.752 1.22 5.031.998 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .562.66h2.95a.95.95 0 0 0 .939-.803l1.77-11.209a.568.568 0 0 0-.561-.658zm-4.565 6.374c-.316 1.871-1.801 3.127-3.695 3.127-.951 0-1.711-.305-2.199-.883-.484-.574-.668-1.391-.514-2.301.295-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.499.589.697 1.411.554 2.317zM84.096 13.075h-3.291a.954.954 0 0 0-.787.417l-4.539 6.686-1.924-6.425a.953.953 0 0 0-.912-.678h-3.234a.57.57 0 0 0-.541.754l3.625 10.638-3.408 4.811a.57.57 0 0 0 .465.9h3.287a.949.949 0 0 0 .781-.408l10.946-15.8a.57.57 0 0 0-.468-.895z" fill="#ffffff"/>
+      <path d="M94.992 6.749h-6.84a.95.95 0 0 0-.938.802l-2.766 17.537a.569.569 0 0 0 .562.658h3.51a.665.665 0 0 0 .656-.562l.785-4.971a.95.95 0 0 1 .938-.803h2.164c4.506 0 7.105-2.18 7.785-6.5.307-1.89.012-3.375-.873-4.415-.971-1.142-2.694-1.746-4.983-1.746zm.789 6.405c-.373 2.454-2.248 2.454-4.062 2.454h-1.031l.724-4.583a.57.57 0 0 1 .563-.481h.473c1.234 0 2.4 0 3.002.703.359.42.468 1.044.331 1.907zM115.434 13.075h-3.273a.567.567 0 0 0-.562.481l-.145.916-.23-.332c-.709-1.029-2.289-1.373-3.867-1.373-3.619 0-6.709 2.741-7.311 6.586-.312 1.918.131 3.752 1.219 5.031 1 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 0 0 .564.66h2.949a.95.95 0 0 0 .938-.803l1.771-11.209a.571.571 0 0 0-.565-.658zm-4.565 6.374c-.314 1.871-1.801 3.127-3.695 3.127-.949 0-1.711-.305-2.199-.883-.484-.574-.666-1.391-.514-2.301.297-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.501.589.699 1.411.554 2.317zM119.295 7.23l-2.807 17.858a.569.569 0 0 0 .562.658h2.822a.949.949 0 0 0 .939-.803l2.768-17.536a.57.57 0 0 0-.562-.658h-3.16a.571.571 0 0 0-.562.481z" fill="#ffffff"/>
+      <path d="M7.266 29.154l.523-3.322-1.165-.027H1.061L4.927 1.292a.316.316 0 0 1 .314-.268h9.38c3.114 0 5.263.648 6.385 1.927.526.6.861 1.227 1.023 1.917.17.724.173 1.589.007 2.644l-.012.077v.676l.526.298a3.69 3.69 0 0 1 1.065.812c.45.513.741 1.165.864 1.938.127.795.085 1.741-.123 2.812-.24 1.232-.628 2.305-1.152 3.183a6.547 6.547 0 0 1-1.825 2c-.696.494-1.523.869-2.458 1.109-.906.236-1.939.355-3.072.355h-.73a2.2 2.2 0 0 0-2.174 1.861l-.055.299-1.146 7.27-.042.215a.19.19 0 0 1-.187.16H7.266z" fill="#ffffff"/>
+      <path d="M23.048 7.667c-.028.179-.06.362-.096.55-1.237 6.351-5.469 8.545-10.874 8.545H9.326a1.339 1.339 0 0 0-1.324 1.134L6.372 27.504l-.494 3.13a.706.706 0 0 0 .697.814h4.89a1.18 1.18 0 0 0 1.164-.993l.048-.248.921-5.832.059-.32a1.177 1.177 0 0 1 1.164-.994h.732c4.749 0 8.467-1.929 9.555-7.508.454-2.332.22-4.28-.984-5.65a4.69 4.69 0 0 0-1.076-.836z" fill="#ffffff" opacity=".7"/>
+      <path d="M21.754 7.151a10.6 10.6 0 0 0-1.312-.291 16.7 16.7 0 0 0-2.648-.196h-8.03a1.168 1.168 0 0 0-1.164.993L6.974 17.806l-.058.37a1.34 1.34 0 0 1 1.324-1.134h2.752c5.405 0 9.637-2.195 10.874-8.545.037-.188.068-.371.096-.55a6.514 6.514 0 0 0-1.208-.796z" fill="#ffffff" opacity=".8"/>
+    </svg>
+    <span>PayPal</span>
+  </div>
+</nav>
+
+<!-- 2. HERO SECTION -->
+<section class="hero">
+  <img class="hero-photo" src="./profile.jpeg" alt="Maggie Lu wearing PayPal t-shirt">
+  <h1>Maggie Lu</h1>
+  <div class="title-pill">SENIOR TECHNICAL PROGRAM MANAGER</div>
+  <p class="applying-to">APPLYING TO <strong>PayPal</strong></p>
+  <p class="applying-title">Senior Technical Program Manager</p>
+</section>
+
+<!-- 3a. WHY YOU SHOULD HIRE ME -->
+<section class="why-section">
+  <div class="section">
+    <div class="section-header"><h2>Why You Should Hire Me at PayPal</h2></div>
+    <ul class="why-list">
+      <li>I have a proven track record of owning and delivering complex, high-visibility technical programs end-to-end — at Microsoft, I built a <strong>0→1 analytics platform processing 1B+ events/month</strong> for a <strong>$3B+ revenue portfolio</strong>, driving roadmap execution across <strong>7+ globally distributed engineering and partner teams</strong>, managing cross-team dependencies across APIs, data pipelines, and CI/CD workflows, and presenting executive-ready updates in Monthly Business Reviews — directly mirroring the cross-functional program leadership, dependency management, and senior stakeholder engagement PayPal's team requires.</li>
+      <li>I bring hands-on experience delivering data-driven and AI/ML-enabled product initiatives within Agile environments — I drove the integration of <strong>Copilot AI and self-service automation</strong> into platform experiences, coordinated sprint capacity planning and QA/UAT cycles using RACI frameworks and Jira, and built execution health dashboards tracking velocity, cycle time, and SLA adherence that <strong>improved on-time delivery from ~65-70% to 80-85%</strong> — giving me the exact blend of AI-powered product delivery and Agile execution rigor this role demands.</li>
+      <li>I have deep experience partnering with Risk, Compliance, and Security platform teams in large-scale ecosystems — I defined <strong>RBAC policies, data governance frameworks, and regulatory compliance controls (GDPR/CCPA/DMA)</strong> at Microsoft, led SOC/SOX IT General Controls assessments for Fortune 500 clients at EY, and implemented enterprise data quality standards for a <strong>$3B transformation that boosted reporting accuracy by 25%</strong> — making me well-prepared to navigate PayPal's payments-critical compliance, identity, and risk dependencies while translating technical complexity into clear business impact for leadership.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3b. RESUME SUMMARY -->
+<section class="section-gray">
+  <div class="section">
+    <div class="section-header"><h2>Resume Summary</h2></div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1B+</div>
+        <div class="stat-label">Events / Month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Engineering Teams</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~40%</div>
+        <div class="stat-label">Reduced Requests</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">85%</div>
+        <div class="stat-label">On-Time Delivery</div>
+      </div>
+    </div>
+    <div class="summary-card">
+      <p>Technical Program Manager with <strong>8+ years of experience</strong> at Microsoft and EY, specializing in cross-functional program delivery and data platform initiatives. Led complex programs across <strong>7+ engineering teams</strong> with senior leadership visibility, including a <strong>0→1 analytics platform processing 1B+ events/month</strong> and AI-powered features that reduced manual requests by <strong>~40%</strong>. Delivered data-driven product initiatives with strong Agile practices, improving on-time feature delivery from <strong>~65% to 85%</strong> through execution health dashboards and sprint capacity planning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. RELEVANT WORK EXPERIENCE -->
+<section class="work-section">
+  <div class="section">
+    <div class="section-header"><h2>Relevant Work Experience</h2></div>
+
+    <div class="work-entry">
+      <div class="work-company">Microsoft</div>
+      <div class="work-role">Senior Technical Program Manager</div>
+      <div class="work-dates">Aug 2021 – Aug 2025</div>
+      <ul class="work-bullets">
+        <li>Led cross-functional technical programs across 7+ engineering and partner teams through weekly decision forums, RACI frameworks, and sprint capacity planning, translating business needs into structured requirements, data specifications, user stories, and acceptance criteria to resolve dependencies and align delivery priorities.</li>
+        <li>Owned a 0→1 analytics platform processing 1B+ events/month serving a $3B+ annualized revenue portfolio; defined program structure and delivery roadmap across 5+ globally distributed engineering and partner teams, increased platform adoption ~30%, and presented executive-ready updates in org-wide Monthly Business Reviews.</li>
+        <li>Coordinated architecture design reviews and backend service integration across 3 engineering teams; partnered with engineering management to define technical milestones, readiness checklists, and post-launch validation criteria, managing dependencies across APIs, data pipelines, and CI/CD workflows.</li>
+        <li>Defined RBAC policies, data product contracts, data quality standards, and governance frameworks with Legal and Security, ensuring well-governed, reusable data access and GDPR/CCPA/DMA compliance across 100+ users.</li>
+        <li>Established platform SLAs (~98% on-time data availability), authored SQL-based data validation queries and pipeline monitoring alerts; reduced issue detection from days to hours and improved MTTR by 40–50%.</li>
+        <li>Drove technical direction for AI-powered features by embedding Copilot AI and self-service automation into analytics experiences; reduced manual requests ~40%, saved 50+ hours/month, and improved CSAT by 10%.</li>
+        <li>Built execution health dashboards in Azure DevOps and Power BI tracking commit vs. delivered, velocity, cycle time, and SLA adherence; improved on-time feature delivery from ~65–70% to 80–85% and reduced sprint carryover ~20%.</li>
+      </ul>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-company">Ernst &amp; Young, LLP</div>
+      <div class="work-role">Senior Consultant – Technology Consulting</div>
+      <div class="work-dates">Jul 2018 – Aug 2021</div>
+      <ul class="work-bullets">
+        <li>Led end-to-end analytics delivery as vendor TPM for Microsoft Digital Stores (Aug 2020–Aug 2021), running planning cycles and driving sprint execution, QA/UAT schedules, and release milestones across web and commerce analytics initiatives.</li>
+        <li>Implemented enterprise data governance and quality controls for a $3B manufacturing transformation, defining data ownership, stewardship models, metric standards, approval workflows, and validation processes that boosted reporting accuracy 25% and reduced downstream rework.</li>
+        <li>Authored functional requirements, data specifications, and acceptance criteria; managed SIT/UAT cycles across internal and external IT teams to ensure technical plans mapped to business objectives and governed data flowed accurately into downstream systems.</li>
+        <li>Built and operationalized 20+ automated Tableau/Power BI dashboards on SQL datasets, refreshed daily or weekly, improving executive visibility into funnel performance, campaign ROI, and operational KPIs ~15%.</li>
+        <li>Led and mentored a 5-person analytics delivery team across requirements intake, testing, and stakeholder reviews, maintaining execution transparency and predictable releases in Jira.</li>
+      </ul>
+    </div>
+
+    <div class="work-entry">
+      <div class="work-company">Ernst &amp; Young, LLP</div>
+      <div class="work-role">Consultant – Risk Advisory Services</div>
+      <div class="work-dates">Aug 2016 – Jun 2017</div>
+      <ul class="work-bullets">
+        <li>Assessed IT General Controls and data access risks for Fortune 500 clients as part of SOC/SOX compliance programs, identifying control gaps and supporting remediation across data management and operations.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. EDUCATION -->
+<section class="section-gray">
+  <div class="section">
+    <div class="section-header"><h2>Education</h2></div>
+    <div class="edu-row">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">AI-Powered Product Management Professional Program</div>
+        <span class="edu-progress">In progress</span>
+        <div class="edu-school">UC San Diego – Extended Studies</div>
+        <div class="edu-dates">Nov 2025 – Present</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">M.S. in Business Analytics (MSBA)</div>
+        <div class="edu-school">Southern Methodist University</div>
+        <div class="edu-location">Dallas, TX</div>
+        <div class="edu-dates">Aug 2017 – May 2018</div>
+        <div class="edu-gpa">GPA: 3.8</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">B.S. in Business Administration; Major: Accounting</div>
+        <div class="edu-school">Ohio State University</div>
+        <div class="edu-location">Columbus, OH</div>
+        <div class="edu-dates">Aug 2012 – May 2016</div>
+        <div class="edu-gpa">GPA: 3.3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
